@@ -1,6 +1,6 @@
 package ch08;
 
-public class book {
+public class Book {
 //	클래스는 기본 생성자를 가지고 있어야 한다.
 //	클래스의 속성들은 get, set 혹은 표준 명명법을 
 //	따르는 메서드들을 사용해 접근할 수 있어야 한다.
