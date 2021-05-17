@@ -9,6 +9,15 @@ public class book {
 	private String writer;
 	private String publisher;
 	private int price;
+	private boolean out;
+	
+	public boolean isOut() { //boolean 타입일경우 프로퍼티 앞에 is (관례)
+		return out;
+	}
+	
+	public void setOut(boolean out) {
+		this.out = out;
+	}
 
 	public String getCode() { // get을 뺀 code는 프로퍼티 그리고 C를 소문자로
 		return code;
