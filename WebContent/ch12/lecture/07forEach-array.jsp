@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="container">
-	<h1>foreach array</h1>
+	<h1>foreach arrayyy</h1>
 	
 	<ul>
 	<c:forEach items="${attr1 }" var="item">
