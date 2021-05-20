@@ -24,6 +24,23 @@
 			<h1>그외 1</h1>
 		</c:otherwise>
 	</c:choose>
+	
+	<hr>
+	
+	<c:choose>
+		<c:when test="${param.type == 'a' }">
+			<h1>when 1</h1>
+		</c:when>
+		<c:when test="${param.type == 'b' }">
+			<h1>when 2</h1>
+		</c:when>
+		<c:when test="${param.type == 'c' }">
+			<h1>when 3</h1>
+		</c:when>
+		<c:otherwise>
+			<h1>otherwise 1</h1>
+		</c:otherwise>
+	</c:choose>
 </div>
 </body>
 </html>
