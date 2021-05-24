@@ -20,7 +20,7 @@
 	<%
 	pageContext.setAttribute("pageAttr1", "pageVal1");
 	request.setAttribute("startPage", "10");
-	request.setAttribute("endPage", "19");
+	request.setAttribute("endPage", "18");
 	%>
 	<my:pagenation01 />
 </div>
