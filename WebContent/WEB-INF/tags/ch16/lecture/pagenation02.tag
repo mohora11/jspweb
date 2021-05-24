@@ -8,7 +8,7 @@
 	
 	<br>
 	
-	end1 : ${end }
+	end : ${end }
 
 </div>
 
