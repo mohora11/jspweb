@@ -39,6 +39,6 @@ public class AppListener01 implements ServletContextListener {
          System.out.println(url);
          
          System.out.println("초기화 메소드 종료");
-    }
+    }//post get보다 먼저 실행됨
 	
 }
