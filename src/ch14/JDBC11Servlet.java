@@ -35,20 +35,22 @@ public class JDBC11Servlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("eid");
 		
-		Employee employee = executeJDBC(id);
-		request.getAttribute(employee);
+		String id = request.getParameter("eid");
+		Employee emp = executeJDBC(id);
+		
+		
+		request.setAttribute("emp", emp);
 		
 		String path = "/ch14/jdbc11.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 	}
-private Employee executeJDBC(String id) {
+	
+	private Employee executeJDBC(String id) {
 		
-		Employee employee = null;
+		Employee emp = null;
 		
-		String sql = "SELECT * FROM Employees" +
-				" WHERE EmployeeID = " + id;
+		String sql = "SELECT * FROM Employees WHERE EmployeeID = " + id;
 		
 		String url = "jdbc:mysql://3.34.139.64/test";
 		String user = "root";
@@ -73,12 +75,17 @@ private Employee executeJDBC(String id) {
 		
 			// 결과  탐색
 			if (rs.next()) {    //커서를 이동
+				
+				String eid = rs.getString(1);
 				String lastName = rs.getString(2);
 				String firstName = rs.getString(3);
 				
-				employee = new Employee();
-				employee.setLastName(lastName);
-				employee.setFirstName(firstName);
+				
+				
+				emp = new Employee();
+				emp.setId(eid);
+				emp.setLastName(lastName);
+				emp.setFirstName(firstName);
 			}
 				
 		} catch (Exception e) {
@@ -113,7 +120,7 @@ private Employee executeJDBC(String id) {
 			}
 		}
 		
-		return employee;
+		return emp;
 	}
 
 	/**
