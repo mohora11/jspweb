@@ -4,7 +4,14 @@ public class Employee {
 	private String id;
 	private String lastName;
 	private String firstName;
+	private String notes;
 	
+	public String getNotes() {
+		return notes;
+	}
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
 	public String getId() {
 		return id;
 	}
