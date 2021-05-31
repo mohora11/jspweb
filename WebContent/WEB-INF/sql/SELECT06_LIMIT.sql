@@ -1,0 +1,30 @@
+SELECT * FROM Customers;
+
+SELECT * FROM Customers
+LIMIT 10;
+
+SELECT * FROM Customers
+LIMIT 5;
+
+SELECT * FROM Customers
+ORDER BY Country
+LIMIT 10;
+
+SELECT * FROM Customers
+ORDER BY CustomerID;
+
+SELECT * FROM Customers
+ORDER BY CustomerID
+LIMIT 0, 10; -- 1PAGE
+
+SELECT * FROM Customers
+ORDER BY CustomerID
+LIMIT 10, 10; -- 2PAGE
+
+SELECT * FROM Customers
+ORDER BY CustomerID
+LIMIT 20, 10; -- 3PAGE
+
+SELECT * FROM Customers
+ORDER BY CustomerID
+LIMIT 30, 10; -- 4PAGE
