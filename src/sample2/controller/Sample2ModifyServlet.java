@@ -13,16 +13,16 @@ import sample2.bean.Member;
 import sample2.dao.MemberDao;
 
 /**
- * Servlet implementation class Sample2SignUpServlet
+ * Servlet implementation class Sample2ModifyServlet
  */
-@WebServlet("/sample2/signup")
-public class Sample2SignUpServlet extends HttpServlet {
+@WebServlet("/sample2/modify")
+public class Sample2ModifyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sample2SignUpServlet() {
+    public Sample2ModifyServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,42 +31,42 @@ public class Sample2SignUpServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "/WEB-INF/sample2/signup.jsp";
-		request.getRequestDispatcher(path).forward(request, response);
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8"); //필터 (한글)
-		// reqeust parameter 수집
+		request.setCharacterEncoding("utf-8");
+		
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
-		String name  = request.getParameter("name");
+		String name = request.getParameter("name");
 		String birth = request.getParameter("birth");
 		
-		// Member bean  완성
 		Member member = new Member();
 		member.setId(id);
 		member.setPassword(password);
 		member.setName(name);
-		member.setBirth(Date.valueOf(birth));            
-		//setBirth(Date.valueOf(birth));
+		member.setBirth(Date.valueOf(birth));
 		
-		// dao insert 메소드 호출
 		MemberDao dao = new MemberDao();
-		boolean ok = dao.insert(member);
-		
-		// forward or redirect
-		if (ok) {
-			String path = request.getContextPath() + "/sample2/list";
-			response.sendRedirect(path);
-		} else {
-			request.setAttribute("message", "가입 실패");
+		boolean ok = dao.update(member);
 			
-			String path = "/WEB-INF/sample2/signup.jsp";
-			request.getRequestDispatcher(path).forward(request, response);
+		String message = "";
+		if (ok) {
+			message = "변경 완료";	
+		} else {
+			message = "변경 실패";
 		}
-	}
+		
+		request.setAttribute("message", message);
+		request.setAttribute("member", member);
+		
+		String path = "/WEB-INF/sample2/info.jsp";
+		request.getRequestDispatcher(path).forward(request, response);
+	} 
+
 }
