@@ -1,27 +1,26 @@
-package sample2.controller;
+package sample2.controller.member;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import sample2.bean.Member;
 import sample2.dao.MemberDao;
 
 /**
- * Servlet implementation class Sample2LogInServlet
+ * Servlet implementation class Sample2CheckDupServlet
  */
-@WebServlet("/sample2/login")
-public class Sample2LogInServlet extends HttpServlet {
+@WebServlet("/sample2/member/checkdup")
+public class Sample2CheckDupServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sample2LogInServlet() {
+    public Sample2CheckDupServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,32 +29,27 @@ public class Sample2LogInServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "/WEB-INF/sample2/login.jsp";
-		request.getRequestDispatcher(path).forward(request, response);
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		
 		String id = request.getParameter("id");
-		String password = request.getParameter("password");
+		
+		//System.out.println(id);
 		
 		MemberDao dao = new MemberDao();
-		Member member = dao.getMember(id);
 		
-		if (member != null && member.getPassword().equals(password)) {
-			HttpSession session = request.getSession();
-			session.setAttribute("userLogined", member);
-			String path = request.getContextPath() + "/sample2/main";
-			response.sendRedirect(path);
+		response.setContentType("text/plain; charset=utf-8");
+		if (dao.existsId(id)) {
+			response.getWriter().append("not ok");		
 		} else {
-			String path = "/WEB-INF/sample2/login.jsp";
-			request.setAttribute("message", "아이디나 패스워드가 일치하지 않습니다");
-			request.getRequestDispatcher(path).forward(request, response);
+			response.getWriter().append("ok");
 		}
+		
+		
 	}
-
 }

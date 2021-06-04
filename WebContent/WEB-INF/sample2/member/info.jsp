@@ -42,7 +42,7 @@
 	<s2:navbar></s2:navbar>
 	<div class="container">
 		<form id="form1"
-			action="${pageContext.request.contextPath }/sample2/modify"
+			action="${pageContext.request.contextPath }/sample2/member/modify"
 			method="post">
 			id : <br> 
 			<input id="input1" type="text" name="id" value="${member.id }" readonly> <br> 
@@ -78,7 +78,7 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
 						<form id="form2"
-							action="${pageContext.request.contextPath }/sample2/remove" method="post">
+							action="${pageContext.request.contextPath }/sample2/member/remove" method="post">
 							<button id="submit2" type="submit" class="btn btn-primary">탈퇴</button>
 						</form>
 					</div>

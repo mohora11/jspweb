@@ -1,4 +1,4 @@
-package sample2.controller;
+package sample2.controller.member;
 
 import java.io.IOException;
 
@@ -13,16 +13,16 @@ import sample2.bean.Member;
 import sample2.dao.MemberDao;
 
 /**
- * Servlet implementation class Sample2RemoveServlet
+ * Servlet implementation class Sample2InfoServlet
  */
-@WebServlet("/sample2/remove")
-public class Sample2RemoveServlet extends HttpServlet {
+@WebServlet("/sample2/member/info")
+public class Sample2InfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sample2RemoveServlet() {
+    public Sample2InfoServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,26 +31,29 @@ public class Sample2RemoveServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession();
+		Member member = (Member) session.getAttribute("userLogined");
+		
+		if(member != null) {
+			MemberDao dao = new MemberDao();
+			Member mem = dao.getMember(member.getId());
+			
+			request.setAttribute("member", mem);
+			
+			String path = "/WEB-INF/sample2/member/info.jsp";
+			request.getRequestDispatcher(path).forward(request, response);			
+		} else {
+			String path = request.getContextPath() + "/sample2/main";
+			response.sendRedirect(path);
+		}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		Member member = (Member) session.getAttribute("userLogined");
-		
-		MemberDao dao = new MemberDao();
-		dao.remove(member.getId());
-		
-		session.invalidate();
-		
-		String path = request.getContextPath() + "/sample2/main";
-		response.sendRedirect(path);
-		
-		
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
