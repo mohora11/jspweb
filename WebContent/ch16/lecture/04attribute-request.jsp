@@ -19,8 +19,8 @@
 <div class="container">
 	<%
 	pageContext.setAttribute("pageAttr1", "pageVal1");
-	request.setAttribute("startPage", "10");
-	request.setAttribute("endPage", "18");
+	request.setAttribute("startPage", "11");
+	request.setAttribute("endPage", "20");
 	%>
 	<my:pagenation01 />
 </div>
