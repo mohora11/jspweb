@@ -56,9 +56,7 @@
 			<input hidden type="submit" id="submit1" value="전송">
 		</form>
 
-		<c:if test="${not empty message }">
-			<div>${message }</div>
-		</c:if>
+		<s2:message></s2:message>
 	</div>
 	<div class="container">
 		<button type="button" class="btn btn-primary" data-toggle="modal"
