@@ -10,9 +10,14 @@ public class BoardDto {
 	private String memberName;
 	private Timestamp inserted;
 	private String memberId;
+	private int numberOfComment;
 	
-	
-	
+	public int getNumberOfComment() {
+		return numberOfComment;
+	}
+	public void setNumberOfComment(int numberOfComment) {
+		this.numberOfComment = numberOfComment;
+	}
 	
 	public String getMemberId() {
 		return memberId;
