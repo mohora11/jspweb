@@ -8,7 +8,23 @@ public class Member {
 	private String password;
 	private String name;
 	private Date birth;
+	private int numberOfBoard;
+	private int numberOfComment;
 	private Timestamp inserted;
+
+	
+	public int getNumberOfBoard() {
+		return numberOfBoard;
+	}
+
+	public void setNumberOfBoard(int numberOfBoard) {
+		this.numberOfBoard = numberOfBoard;
+	}
+
+	public int getNumberOfComment() {
+		return numberOfComment;
+	}
+
 
 	public Timestamp getInserted() {
 		return inserted;
@@ -42,6 +58,11 @@ public class Member {
 	}
 	public void setBirth(Date birth) {
 		this.birth = birth;
+	}
+
+	public void setNumberOfComment(int numComment) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

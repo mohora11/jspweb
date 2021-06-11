@@ -19,9 +19,14 @@
 <div class="container">
 	
 	<s2:navbar />
-	
-	<h1>환영합니다.</h1>
-	
+
+<div class="jumbotron">
+  <h1 class="display-4"><i class="fab fa-java"></i>WELL COME</h1>
+  <p class="lead">Basic servlet/JSP built user, board application</p>
+  <hr class="my-4">
+  <p>This is a bulletin board that I made after learning programming for the first time. Start by signing up for membership.</p>
+  <a class="btn btn-primary btn-lg" href="<%= request.getContextPath() %>/sample2/member/signup" role="button"><i class="fas fa-user-plus"></i> SIGN UP</a>
+</div>
 </div>
 </body>
 </html>
