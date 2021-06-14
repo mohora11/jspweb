@@ -58,6 +58,13 @@
 
 		<s2:message></s2:message>
 	</div>
+	
+	<div>
+	작성한 게시물 : <span>${member.numberOfBoard }</span>개
+	<br>
+	작성한 댓글 : <span>${member.numberOfComment }</span>개
+	</div>
+	
 	<div class="container">
 		<button type="button" class="btn btn-primary" data-toggle="modal"
 			data-target="#staticBackdrop">탈퇴</button>

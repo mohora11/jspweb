@@ -1,8 +1,6 @@
 package sample2.service.member;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
-
 
 import sample2.bean.Member;
 import sample2.dao.BoardDao;
@@ -35,7 +33,6 @@ public class MemberService {
 			member.setNumberOfComment(numComment);
 			
 			return member;
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -43,6 +40,8 @@ public class MemberService {
 		}
 		return null;
 	}
+	
+	
 	public void remove(String id) {
 		Connection con = null;
 		try {
@@ -53,8 +52,6 @@ public class MemberService {
 			this.mdao.remove(id, con);
 			
 			con.commit();
-			DBConnection.close();
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 			DBConnection.rollback(con);
@@ -63,3 +60,5 @@ public class MemberService {
 		}
 	}
 }
+
+

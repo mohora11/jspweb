@@ -11,30 +11,27 @@ public class Member {
 	private int numberOfBoard;
 	private int numberOfComment;
 	private Timestamp inserted;
-
+	
+	
 	
 	public int getNumberOfBoard() {
 		return numberOfBoard;
 	}
-
 	public void setNumberOfBoard(int numberOfBoard) {
 		this.numberOfBoard = numberOfBoard;
 	}
-
 	public int getNumberOfComment() {
 		return numberOfComment;
 	}
-
-
+	public void setNumberOfComment(int numberOfComment) {
+		this.numberOfComment = numberOfComment;
+	}
 	public Timestamp getInserted() {
 		return inserted;
 	}
-
 	public void setInserted(Timestamp inserted) {
 		this.inserted = inserted;
 	}
-	
-	
 	public String getId() {
 		return id;
 	}
@@ -58,11 +55,6 @@ public class Member {
 	}
 	public void setBirth(Date birth) {
 		this.birth = birth;
-	}
-
-	public void setNumberOfComment(int numComment) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 	

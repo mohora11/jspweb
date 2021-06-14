@@ -43,7 +43,6 @@
 						</td>
 						<td>${board.memberName }</td>
 						<td>${board.timeAgo }</td> 
-						<td>${board.hit }</td>
 					</tr>	
 				</c:forEach>
 			</tbody>

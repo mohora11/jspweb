@@ -2,7 +2,6 @@ package sample2.bean;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.Set;
 
 public class BoardDto {
 	private int boardId;
@@ -12,8 +11,6 @@ public class BoardDto {
 	private String memberId;
 	private int numberOfComment;
 	private Timestamp inserted;
-	private int hit;
-	
 	
 	public int getNumberOfComment() {
 		return numberOfComment;
@@ -21,23 +18,15 @@ public class BoardDto {
 	public void setNumberOfComment(int numberOfComment) {
 		this.numberOfComment = numberOfComment;
 	}
-
 	
 	
 	
-	public int getHit() {
-		return hit;
-	}
-	public void setHit(int hit) {
-		this.hit = hit;
-	}
 	public String getMemberId() {
 		return memberId;
 	}
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
-	
 	public int getBoardId() {
 		return boardId;
 	}
@@ -85,6 +74,4 @@ public class BoardDto {
 			return new SimpleDateFormat("yy/MM/dd").format(this.inserted);
 		}
 	}
-	
-	
 }
